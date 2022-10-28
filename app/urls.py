@@ -17,10 +17,11 @@ from django import views
 from django.contrib import admin
 from django.urls import path, include
 from app.views import home
+from .views import SingUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home' ),
-    #path('exit/',exit,name='exit' ),
-    path('accounts/', include('django.contrib.auth.urls') )
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('singup/',SingUpView.as_view() , name='singup')
 ]
