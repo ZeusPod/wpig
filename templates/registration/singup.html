@@ -1,0 +1,43 @@
+{% extends 'registration/base_register.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container w-75 mt-5">
+    <div class="row align-items-stretch">
+      <!-- left image -->
+      <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+      </div>
+      <div class="col bg-white p-5 rounded-right">
+        <div class="text-right">
+          <img src="/static/img/logopig.jpg" width="60px" alt="">
+        </div>
+
+        <h2 class="fw-bold text-center py-5">Registrate</h2>
+        <!-- login form -->
+        <form class="text-center" action="" method="post">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label for="username" class="form-label">Username</label>
+            <br>
+            {{ form.username }}
+          </div>
+          <div class="mb-4">
+            <label for="password" class="form-label">Password</label>
+            <br>
+            {{ form.password1 }}
+          </div>
+          <div class="mb-4">
+            <label for="password" class="form-label">Confirmar password</label>
+            <br>
+            {{ form.password2 }}
+          </div>
+          <button class="btn btn-success w-100 mt-4">Registrate</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+
