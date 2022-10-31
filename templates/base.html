@@ -44,24 +44,34 @@
                                 <a href="#" class="nav-link"><i class="bi bi-blockquote-right px-2"></i>Consejos para tu granja</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link"><i class="bi bi-camera px-2"></i>Cargar imagen</a>
+                                <a href="{% url 'create_animal' %}" class="nav-link"><i class="bi bi-piggy-bank px-2"></i>Registrar cerdo</a>
                             </li>
+                            <li>
+                                <a href="#" class="nav-link"><i class="bi bi-book px-2"></i></i>Resultados</a>
+                            </li>
+                            {% if user.is_superuser %}
                             <li>
                                 <a href="#" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
                             </li>
+                            {% endif %}
                             <li>
                                 <a href="{% url 'logout' %}" class="nav-link"><i class="bi bi-door-closed"></i></i>Salir</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
-            </aside>
+                <div class="container">
+    
+                    {% block content %}
+                            <!-- here other page content -->
+                    {% endblock %}
+            
+                </div>
+            
+            </aside>  
         </div>
     </div>
-
-    {% block content %}
-    <!-- here other page content -->
-    {% endblock %}
+    
 
 
 
