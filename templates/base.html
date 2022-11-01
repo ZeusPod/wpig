@@ -1,88 +1,110 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>World pig</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <!-- sidebar -->
 
-    <div class="container-fluid">
-        <div class="row min-vh-100 flex-md-row">
-            <aside class="col-12 col-md-3 col-xl-2 p-0 bg-dark flez-shrink-1">
-                <nav class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row align-items-center py-2 text-center sticky-top" id="sidebar">
-                    <div class="text-center p-3">
-                        <img src="../static/img/logopig.jpg" alt="profile picture" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block">
-                        <a href="#" class="navbar-brand mx-0 font-weight-bold text-nowrap">World Pig</a>
-                    </div>
-                    <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse prder-last" id="nav">
-                        <ul class="navbar-nav flex-column w-100 justify-content-center">
-                            {% if user.is_authenticated %}
-                            <li>
-                                <a href="#" class="nav-link">{{user.username}}</a>
-                            </li>
-                            {% endif %}
-                            <li>
-                                <a href="#" class="nav-link"><i class="bi bi-house px-2"></i>Inicio</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link"><i class="bi bi-journals px-2"></i>Acerca de</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link"><i class="bi bi-blockquote-right px-2"></i>Consejos para tu granja</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'create_animal' %}" class="nav-link"><i class="bi bi-piggy-bank px-2"></i>Registrar cerdo</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link"><i class="bi bi-book px-2"></i></i>Resultados</a>
-                            </li>
-                            {% if user.is_superuser %}
-                            <li>
-                                <a href="#" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
-                            </li>
-                            {% endif %}
-                            <li>
-                                <a href="{% url 'logout' %}" class="nav-link"><i class="bi bi-door-closed"></i></i>Salir</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header text-center">
+                <h3>World Pig</h3>
                 <div class="container">
-    
-                    {% block content %}
-                            <!-- here other page content -->
-                    {% endblock %}
-            
+                    <img src="/static/img/logopig.jpg"  alt="profile picture" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block">
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="#" class="nav-link">{{user.username}}</a>
+                    </li>
+                    {% endif %}
                 </div>
-            
-            </aside>  
-        </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="{% url 'home' %}" class="nav-link"><i class="bi bi-house px-2"></i>Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link"><i class="bi bi-journals px-2"></i>Acerca de</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link"><i class="bi bi-blockquote-right px-2"></i>Consejos para tu granja</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'create_animal' %}" class="nav-link"><i class="bi bi-piggy-bank px-2"></i>Registrar cerdo</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Resultados</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                {% if user.is_superuser %}
+                <li>
+                    <a href="#" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
+                </li>
+                {% endif %}
+                <li>
+                <a href="{% url 'logout' %}" class="nav-link"><i class="bi bi-door-closed"></i></i>Salir</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Page Content Holder -->
+        {% block content %}
+        
+            <!-- all pages content here -->
+        
+        <!-- end content -->
+        {% endblock %}
     </div>
-    
 
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-
-    <!-- cdn bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-    crossorigin="anonymous"></script>
-    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1,9 +1,15 @@
-<h1>aqui formulario de registro de cerdo</h1>
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-group">
-        {{ form.as_p }}
-    </div>
-    <button type="submit"> Registrar</button>
-</form>
+{% extends 'index.html' %}
+
+{% block content %}
     
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit"> Registrar</button>
+    </form>
+
+
+
+{% endblock %}
