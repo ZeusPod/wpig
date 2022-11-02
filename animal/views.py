@@ -23,3 +23,8 @@ def create_animal(request):
         return render(request, 'animal/register_animal.html')
         
         
+# get alls animals
+def get_all_animals(request):
+    if request.method == "GET":
+        animals = Animal.objects.all()
+        return render(request, 'animal/list_animals.html', {'animals':animals})

@@ -71,7 +71,7 @@
                 </li>
                 {% if user.is_superuser %}
                 <li>
-                    <a href="#" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
+                    <a href="{% url 'get_animals' %}" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
                 </li>
                 {% endif %}
                 <li>
