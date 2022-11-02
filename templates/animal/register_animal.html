@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center py-5 mt-4">
+        
+        <form action="" method="post" enctype="multipart/form-data" class="p-5">
+            <h1>Registrar Cerdo</h1>
+            {% csrf_token %}
+            <div class="form-group pt-4">
+                <label for="age">Edad</label>
+                {{ form.age }}
+            </div>
+            <div class="form-group">
+                <label for="description" name="description">Descripción</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="age" name="age">Foto del cerdo</label>
+                {{ form.picture }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-4"> Registrar</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    
+<div class="container mt-4">
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Dueño</th>
+                <th>Edad</th>
+                <th>Descripcion</th>
+                <th>Foto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for animal in animals %}
+            <tr>
+                <td>{{ animal.id }}</td>
+                <td>{{ animal.user_id }}</td>
+                <td>{{ animal.age }}</td>
+                <td>{{ animal.description }}</td>
+                <td>{{ animal.picture }}</td>
+                <td>
+                    <a href="#" class="btn btn-success">Ver detalle</a> 
+                    <a href="#"class="btn btn-warning">Procesar</a> 
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
