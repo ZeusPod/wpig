@@ -27,6 +27,7 @@
                 <td>
                     <a href="#" class="btn btn-success">Ver detalle</a> 
                     <a href="#"class="btn btn-warning">Procesar</a> 
+                    <a href="{% url 'delete_animals' animal.id %}"class="btn btn-danger">Eliminar</a> 
                 </td>
             </tr>
             {% endfor %}

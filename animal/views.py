@@ -3,7 +3,8 @@ from django.shortcuts import redirect, render
 from animal.forms import FormularioAnimals
 from django.contrib.auth.models import User
 from .models import Animal
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def create_animal(request):
@@ -28,3 +29,11 @@ def get_all_animals(request):
     if request.method == "GET":
         animals = Animal.objects.all()
         return render(request, 'animal/list_animals.html', {'animals':animals})
+
+
+# delete animals 
+def delete_animals(request,animal_id):
+    animal = Animal.objects.get(pk=animal_id)
+    animal.delete()
+    animals = Animal.objects.all()
+    return render(request, 'animal/list_animals.html', {'animals':animals})
