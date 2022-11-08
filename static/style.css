@@ -222,3 +222,26 @@ a.article, a.article:hover {
     }
 
 }
+
+
+
+.cardservice{
+    border-color: rgb(249, 156, 8);
+    background-color: rgb(236, 236, 236);
+}
+
+.card p{
+    color: gray;
+}
+
+.circle{
+    height: 70px;
+    width: 70px;
+    background-color:rgb(195, 196, 195);
+    color: black;
+    padding: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 30px;
+    border-radius: 50%;
+}
