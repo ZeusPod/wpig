@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+<div class="content mt-4 d-block px-4">
+    <h1>Resultados</h1>
+    <span>Dueño:</span>
+    {{ animal.user_id }}
+    <br>
+    <span>Edad del cerdo:</span>
+    {{ animal.age }}
+    <br>
+    <span>Descripcion: </span>
+    {{ animal.description }}
+    <br>
+    <span>Resultado para neumonia: </span>
+    {{ resultado }}
+</div>
+
+
+{% endblock content %}
