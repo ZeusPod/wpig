@@ -19,6 +19,7 @@ from django.urls import path, include
 from app.views import home, consejos
 from .views import SingUpView
 from animal import urls
+from result import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('consejos/', consejos, name='consejos' ),
     path('accounts/', include('django.contrib.auth.urls')),
     path('singup/',SingUpView.as_view() , name='singup'),
-    path('animal/', include('animal.urls'))
+    path('animal/', include('animal.urls')),
+    path('result/', include('result.urls')),
 ]

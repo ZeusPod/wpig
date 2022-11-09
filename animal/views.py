@@ -37,3 +37,4 @@ def delete_animals(request,animal_id):
     animal.delete()
     animals = Animal.objects.all()
     return render(request, 'animal/list_animals.html', {'animals':animals})
+
