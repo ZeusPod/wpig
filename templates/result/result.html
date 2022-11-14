@@ -1,21 +1,51 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    
-<div class="content mt-4 d-block px-4">
-    <h1>Resultados</h1>
-    <span>Dueño:</span>
-    {{ animal.user_id }}
-    <br>
-    <span>Edad del cerdo:</span>
-    {{ animal.age }}
-    <br>
-    <span>Descripcion: </span>
-    {{ animal.description }}
-    <br>
-    <span>Resultado para neumonia: </span>
-    {{ resultado }}
+
+
+<div class="container d-flex justify-content-center align-items-center vh-100 ">
+    <div class="row border border-dark shadow-lg border-4 rounded-5">
+        <!-- columna izquierda -->
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+            <img src="/static/img/logopig.jpg" alt="" style="width: 120px;">
+            <h1>Resultados</h1>
+        </div>
+        <!-- columna derecha -->
+        <div class="col-12 col-md-6 p-4 ">
+            <p class="fw-bold">
+                <span>
+                    Dueño: {{ animal.user_id }}
+                </span>
+                <br>
+                <span>
+                    Edad del cerdo: {{ animal.age }}
+                </span>
+                <br>
+                <span>
+                    Descripcion: {{ animal.description }}
+                </span>
+                <br>
+                <span>
+                    Resultado para neumonia: {{ resultado }}
+                </span>
+            </p>
+
+            <!-- sintomas -->
+            <h5>Sintomas</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem modi ipsa deleniti sunt eaque sapiente nemo saepe, optio ab illum laudantium a explicabo praesentium assumenda molestias voluptatum. Cum, doloribus nisi.
+            </p>
+
+            <!-- recomendaciones -->
+            <h5>Recomendaciones</h5>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, sit sint ex velit, ad ipsum quae ratione deserunt saepe doloribus ipsa deleniti suscipit culpa rerum tenetur atque facere? Vitae, ipsum!
+            </p>
+            <a href="{% url 'get_animals' %}" class="btn btn-success">Volver atras</a>
+        </div>
+    </div>
 </div>
+
 
 
 {% endblock content %}

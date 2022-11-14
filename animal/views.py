@@ -38,3 +38,10 @@ def delete_animals(request,animal_id):
     animals = Animal.objects.all()
     return render(request, 'animal/list_animals.html', {'animals':animals})
 
+
+
+# get animal by id
+def get_animal_id(request, animal_id):
+    animal = Animal.objects.get(pk=animal_id)
+    print(animal)
+    return render(request, 'modal/modal_detail.html', {'animal':animal} )
