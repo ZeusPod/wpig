@@ -16,7 +16,7 @@ Including another URLconf
 from django import views
 from django.contrib import admin
 from django.urls import path, include
-from app.views import home, consejos
+from app.views import home, consejos, contacto
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import SingUpView
@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home' ),
     path('consejos/', consejos, name='consejos' ),
+    path('contacto/', contacto, name='contacto' ),
     path('accounts/', include('django.contrib.auth.urls')),
     path('singup/',SingUpView.as_view() , name='singup'),
     path('animal/', include('animal.urls')),
