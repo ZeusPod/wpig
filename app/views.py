@@ -21,6 +21,9 @@ def login(request):
 def consejos(request):
     return render(request, 'consejos.html')
 
+def contacto(request):
+    return render(request, 'contact.html')
+
 
 class SingUpView(CreateView):
     form_class = UserCreationForm
