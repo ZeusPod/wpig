@@ -17,6 +17,8 @@ from django import views
 from django.contrib import admin
 from django.urls import path, include
 from app.views import home, consejos
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import SingUpView
 from animal import urls
 from result import urls
@@ -29,4 +31,4 @@ urlpatterns = [
     path('singup/',SingUpView.as_view() , name='singup'),
     path('animal/', include('animal.urls')),
     path('result/', include('result.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

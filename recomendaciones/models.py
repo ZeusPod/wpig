@@ -1,18 +1,17 @@
 from django.db import models
-from animal.models import Animal
-from sintomas.models import Sintomas
+
 
 # Create your models here.
-class Result(models.Model):
-    animal_id = models.ForeignKey(Animal,on_delete=models.CASCADE )
-    creation_date = models.DateField(auto_now_add=True)
-    result = models.IntegerField()
-    sintomas_id = models.ForeignKey(Sintomas, on_delete=models.CASCADE)
+class Recomendaciones(models.Model):
+    tipos = models.PositiveBigIntegerField()
+    name = models.CharField('neuominia', null=True, max_length=255)
+    recomendaciones = models.TextField()
 
 
     def __str__(self) -> str:
-        return self.animal_id
+        return self.recomendaciones
+
 
     class Meta:
-        verbose_name = 'Result' 
-        verbose_name_plural = 'Results' 
+        verbose_name = 'Recomendacion'
+        verbose_name_plural = 'Recomendaciones'
