@@ -25,48 +25,8 @@
                 <td>{{ animal.description }}</td>
                 <td>{{ animal.picture }}</td>
                 <td>
-
-                    <a href="{% url 'get_animal_id' animal.id %}" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-backdrop="false" data-dismiss="modal">Detalle</a>
-
-                    <!-- Modal -->
-                    <div class="modal" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Detalle de solicitud</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                
-                                <div class="modal-body">
-                                        
-                                    <span>
-                                        Dueño: {{ animal.user_id }}
-                                    </span>
-                                    <br>
-                                    <span>
-                                        Edad: {{ animal.age }}  
-                                    </span> 
-                                    <br>
-                                    <span>
-                                        Descripcion: {{ animal.description }}  
-                                    </span>
-                                    
-                                    
-                                </div>
-                            
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-backdrop="false">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <!-- endmodal -->
-
+                    
+                    <a href="{% url 'get_animal_id' animal.id %}" class="btn btn-primary">Detalle</a>
 
                     <a href="{% url 'process_image' animal.id %}" class="btn btn-success">Procesar</a>
                     <a href="{% url 'delete_animals' animal.id %}" class="btn btn-danger">Eliminar</a>
@@ -75,6 +35,46 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- Modal -->
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle de solicitud</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+
+                    <span>
+                        Dueño: {{ data.user_id }}
+                    </span>
+                    <br>
+                    <span>
+                        Edad: {{ data.age }}
+                    </span>
+                    <br>
+                    <span>
+                        Descripcion: {{ data.description }}
+                    </span>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-backdrop="false">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- endmodal -->
 </div>
 
 

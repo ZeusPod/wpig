@@ -1,6 +1,4 @@
 from django.db import models
-from animal.models import Animal
-
 
 # Create your models here.
 class Sintomas(models.Model):

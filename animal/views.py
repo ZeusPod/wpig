@@ -14,7 +14,7 @@ def create_animal(request):
             formulario = form.save(commit=False)
             formulario.user_id = request.user
             formulario.save()
-            return redirect('home')
+            return redirect('get_animals')
         context={
             'form':form,
         }
@@ -42,6 +42,5 @@ def delete_animals(request,animal_id):
 
 # get animal by id
 def get_animal_id(request, animal_id):
-    animal = Animal.objects.get(pk=animal_id)
-    print(animal)
-    return render(request, 'modal/modal_detail.html', {'animal':animal} )
+    data = Animal.objects.get(pk=animal_id)
+    return render(request, 'detail/detail.html', {'data':data})

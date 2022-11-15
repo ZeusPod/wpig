@@ -1,47 +1,36 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block content %}
-
-
+    
 <div class="container d-flex justify-content-center align-items-center vh-100 ">
     <div class="row border border-dark shadow-lg border-4 rounded-5">
         <!-- columna izquierda -->
         <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
             <img src="/static/img/logopig.jpg" alt="" style="width: 120px;">
-            <h1>Resultados</h1>
+            <h1>Detalles</h1>
         </div>
         <!-- columna derecha -->
         <div class="col-12 col-md-6 p-4 ">
             <p class="fw-bold">
                 <span>
-                    Dueño: {{ animal.user_id }}
+                    Dueño: {{ data.user_id }}
                 </span>
                 <br>
                 <span>
-                    Edad del cerdo: {{ animal.age }}
+                    Edad del cerdo: {{ data.age }}
                 </span>
                 <br>
                 <span>
-                    Descripcion: {{ animal.description }}
+                    Descripcion: {{ data.description }}
                 </span>
                 <br>
-                <span>
-                    Resultado para neumonia: {{ resultado }}
-                </span>
             </p>
 
-            <!-- sintomas -->
-            <h5>Sintomas</h5>
-            <p>
-                {{ sintomas }}
-            </p>
-
-            <!-- recomendaciones -->
-            <h5>Recomendaciones</h5>
-            <p>
-                {{ recomendaciones }}
-            </p>
-            <a href="{% url 'get_animals' %}" class="btn btn-success">Volver atras</a>
+            <!-- foto -->
+            <div class="">
+                <img src="{{data.picture.url}}" alt="" width="250px" height="250px">
+            </div>
+            <a href="{% url 'get_animals' %}" class="btn btn-success mt-4">Volver atras</a>
         </div>
     </div>
 </div>
