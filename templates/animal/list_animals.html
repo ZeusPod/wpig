@@ -1,5 +1,29 @@
 {% extends 'index.html' %}
 
+{% block js %}
+
+<script>
+    function confirmarEliminar(id){
+        Swal.fire({
+            "title":"Estas seguro de eliminar ?",
+            "text":"Esta accion no se puede desacer",
+            "icon":"warning",
+            "showCancelButton":true,
+            "cancelButtonText":"No, cancelar",
+            "confirmButtonText":"Si, eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#2C3034"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href="/animal/delete_animals/"+id
+            }
+        })
+    }
+</script>    
+    
+{% endblock %}
+
 
 {% block content %}
 
@@ -28,13 +52,14 @@
                     
                     <a href="{% url 'get_animal_id' animal.id %}" class="btn btn-primary">Detalle</a>
                     <a href="{% url 'process_image' animal.id %}" class="btn btn-success">Procesar</a>
-                    <a href="{% url 'delete_animals' animal.id %}" class="btn btn-danger btnEliminar">Eliminar</a>
+                    <a href="#" onclick="confirmarEliminar({{ animal.id }})" class="btn btn-danger btnEliminar">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
 
 
 {% endblock %}

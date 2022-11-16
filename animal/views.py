@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Animal
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 # Create your views here.
 def create_animal(request):
@@ -14,6 +15,7 @@ def create_animal(request):
             formulario = form.save(commit=False)
             formulario.user_id = request.user
             formulario.save()
+            messages.success(request,'Cerdo agregado con exito')
             return redirect('get_animals')
         context={
             'form':form,
@@ -36,6 +38,7 @@ def delete_animals(request,animal_id):
     animal = Animal.objects.get(pk=animal_id)
     animal.delete()
     animals = Animal.objects.all()
+    messages.success(request, 'Solicitud eliminada con exito')
     return render(request, 'animal/list_animals.html', {'animals':animals})
 
 
