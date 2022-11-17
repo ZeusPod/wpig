@@ -1,4 +1,3 @@
-from urllib import request
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -11,15 +10,17 @@ from django.contrib import messages
 
 @login_required
 def home(request):
+    messages.success(request,"Bienvenido(a) de nuevo")
     return render(request, 'index.html')
-
 
 
 def login(request):
     return render(request, 'login.html')
 
+
 def consejos(request):
     return render(request, 'consejos.html')
+
 
 def contacto(request):
     return render(request, 'contact.html')

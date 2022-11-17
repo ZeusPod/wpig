@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="p-4 vh-100 overflow-auto">
+        <h1 class="text-center py-4 px-2">Resultados</h1>
+        <hr>
+        <div class="row">
+            {% for r in results %}
+            <div class="col">
+                <!-- start card -->
+                <div class="card shadow-lg" style="width: 20rem;">
+                <img class="card-img-top" src="{{r.name_foto.url}}" alt="Card image cap" style="height: 280px;">
+                <div class="card-body">
+                    <p class="card-text fs-4 fw-semibold">
+                        <span>Solicitud #: {{ r.id }}</span>
+                        <br>
+                        <span>Dueño: {{ r.animal_id }}</span>
+                        <br>
+                        <span>Resultado: {{ r.resultado }}</span>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success btn-lg text-center">Ver detalle</button>
+                </div>
+                </div>
+                <!-- end card -->
+
+            </div>    
+            {% endfor %}
+        </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ul>
+                <li>Solitud #: {{ r.id }}</li>
+                <li>Dueño: {{ r.animal_id }}</li>
+                <li>Foto: {{ r.name_foto }}</li>
+                <div class="">
+                    <img src="{{r.name_foto.url}}" alt="" width="250px" height="250px">
+                </div>
+                <li>Ressultado: {{ r.resultado }}</li>
+                <li>Sintomas Relacionados : {{ r.sintomas }}</li>
+                <li>Recomendaciones: {{ r.recomendaciones }}</li>
+                <li>Fecha de procesado: {{ r.result_date }}</li>
+</ul>   -->
