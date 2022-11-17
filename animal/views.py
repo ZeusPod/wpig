@@ -42,7 +42,6 @@ def delete_animals(request,animal_id):
     return render(request, 'animal/list_animals.html', {'animals':animals})
 
 
-
 # get animal by id
 def get_animal_id(request, animal_id):
     data = Animal.objects.get(pk=animal_id)

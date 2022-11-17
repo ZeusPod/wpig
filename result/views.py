@@ -4,6 +4,8 @@ from utils.neuronal import predict
 from sintomas.models import Sintomas
 from recomendaciones.models import Recomendaciones
 from django.contrib import messages
+from result.models import Resultados
+
 
 # Process image
 def process_image(request,animal_id):
@@ -24,4 +26,17 @@ def process_image(request,animal_id):
 
     if predicion == 0 or predicion == 1:
         messages.success(request, 'El resultado a sido generado con exito') 
+
+
+        #Guardando el result
+        r = Resultados(animal_id=animal, name_foto=animal.picture, resultado=resultado, sintomas=sintomas, recomendaciones=recomendaciones)
+        r.save()
+
     return render(request, 'result/result.html', {'animal':animal, 'resultado':resultado, 'name_foto':name_foto, 'sintomas':sintomas, 'recomendaciones':recomendaciones})
+
+
+# Get all results
+def get_results(request):
+    results = Resultados.objects.all()
+    return render(request, 'result/list_result.html', {"results":results})
+

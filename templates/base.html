@@ -65,12 +65,11 @@
                         <li>
                             <a href="#">Page 1</a>
                         </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
+                        {% if user.is_superuser %}
+                            <li>
+                                <a href="{% url 'get_results' %}">Resultados</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </li>
                 {% if user.is_superuser %}
