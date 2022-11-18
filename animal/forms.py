@@ -21,7 +21,19 @@ class FormularioAnimals(forms.ModelForm):
 
     picture = forms.ImageField(label='Subir foto', required=True,widget=forms.FileInput(attrs={'required':'True', 'help_text':'Campo requerido'}))
 
+    raza = forms.CharField(label='Raza', required=True, max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}))
     
+    establo = forms.CharField(label='Establo', required=True, max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}))
+    
+    galpon = forms.CharField(label='Galpon', required=True, max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    place_of_birth = forms.CharField(label='place_of_birth', required=True, max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    born_date = forms.DateField(widget=forms.TextInput(attrs={'placeholder':'Fecha de nacimiento', 'type':'date'}))
+    
+
+
+
     class Meta:
         model = Animal
-        fields = ['age', 'description', 'picture']
+        fields = ['age', 'description', 'picture', 'raza', 'establo', 'galpon', 'place_of_birth', 'born_date']

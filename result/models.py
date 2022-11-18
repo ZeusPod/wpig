@@ -3,8 +3,16 @@ from animal.models import Animal
 
 # Create your models here.
 class Resultados(models.Model):
-    animal_id = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    name_foto = models.ImageField(null=False, upload_to="result/")
+    animal_id = models.CharField(max_length=255)
+    age = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    name_foto = models.CharField(max_length=255)
+    establo = models.CharField(max_length=255)
+    galpon = models.CharField(max_length=255)
+    raza = models.CharField(max_length=255)
+    register_date = models.CharField(max_length=255)
+    born_date = models.CharField(max_length=255)
+    place_of_birth = models.CharField(max_length=255)
     resultado = models.CharField(max_length=255)
     sintomas = models.TextField()
     recomendaciones = models.TextField()
