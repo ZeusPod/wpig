@@ -13,7 +13,19 @@ def process_image(request,animal_id):
     datafoto = str(animal.picture).split('/')
     name_foto = datafoto[1]
     predicion = predict(f'media/animal/{name_foto}')
-    print(predicion)
+    
+    #obtenemos los datos a guardar en los resultados
+    age = str(animal.age)
+    description = str(animal.description)
+    picture = name_foto
+    dueño = str(animal.user_id)
+    establo = str(animal.establo)
+    galpon = str(animal.galpon)
+    raza = str(animal.raza)
+    register_date = str(animal.register_date)
+    born_date = str(animal.born_date)
+    place_of_birth = str(animal.place_of_birth)
+
     if predicion == 0:
         resultado = "neumonia por salmonela"
     elif predicion == 1:
@@ -29,8 +41,10 @@ def process_image(request,animal_id):
 
 
         #Guardando el result
-        r = Resultados(animal_id=animal, name_foto=animal.picture, resultado=resultado, sintomas=sintomas, recomendaciones=recomendaciones)
+        r = Resultados(animal_id= dueño ,age=age, description=description, name_foto= picture, establo=establo,galpon= galpon, raza=raza,register_date=register_date,born_date=born_date,place_of_birth=place_of_birth, resultado=resultado, sintomas=sintomas, recomendaciones=recomendaciones)
         r.save()
+
+        
 
     return render(request, 'result/result.html', {'animal':animal, 'resultado':resultado, 'name_foto':name_foto, 'sintomas':sintomas, 'recomendaciones':recomendaciones})
 
@@ -40,3 +54,8 @@ def get_results(request):
     results = Resultados.objects.all()
     return render(request, 'result/list_result.html', {"results":results})
 
+
+#details informe
+def detail_result(request, result_id):
+    data = Resultados.objects.get(pk=result_id)
+    return render(request,'result/detail_result.html',{'data':data})

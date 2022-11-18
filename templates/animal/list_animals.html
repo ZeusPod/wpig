@@ -30,24 +30,30 @@
 <div class="container mt-4">
     <table class="table table-dark table-striped" id="tablaAnimales">
 
-        <thead>
+        <thead class="text-center">
             <tr>
                 <th>#</th>
                 <th>Dueño</th>
                 <th>Edad</th>
                 <th>Descripcion</th>
                 <th>Foto</th>
+                <th>Granja</th>
+                <th>Galpon</th>
+                <th>Fecha de nacimiento</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             {% for animal in animals %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ animal.id }}</td>
                 <td>{{ animal.user_id }}</td>
                 <td>{{ animal.age }}</td>
                 <td>{{ animal.description }}</td>
                 <td>{{ animal.picture }}</td>
+                <td>{{ animal.establo }}</td>
+                <td>{{ animal.galpon }}</td>
+                <td>{{ animal.born_date }}</td>
                 <td>
                     
                     <a href="{% url 'get_animal_id' animal.id %}" class="btn btn-primary">Detalle</a>

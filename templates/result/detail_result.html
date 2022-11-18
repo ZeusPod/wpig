@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container text-center mt-4 v-100">
+    
+    <h3>Informe de resultados</h3>
+    <hr>
+    <main class="container text-start">
+        <!-- datos del solicitante -->
+        <div class="row">
+            <div class="col">
+                <p>
+                    Numero de solicitud: <dd> {{data.id}}
+                </p>
+                <br>
+                <p>
+                    Granja: <dd>{{data.establo}}</dd>
+                </p>
+                <br>
+                <p>
+                    Galpon: <dd>{{data.galpon}}</dd>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    Solicitante: <dd>{{data.animal_id}}</dd>
+                </p>
+                <br>
+                <p>
+                    Fecha de solicitud: <dd>{{data.register_date}}</dd>
+                </p>
+                <br>
+                <p>
+                    Fecha de procesado: <dd>{{data.result_date}}</dd>
+                </p>
+            </div>
+            <hr>
+        </div>
+        <!-- fin datos del solicitante -->
+        <h4 class="text-center">Datos del cerdo</h4>
+        <hr>
+        <!-- datos del cerdo -->
+        <div class="row">
+            <div class="col">
+                <p>
+                    Edad del cerdo: <dd>{{data.age}}</dd>
+                </p>
+                <br>
+                <p>
+                    Raza del cerdo: <dd>{{data.raza}}</dd>
+                </p>
+                <br>
+                <p>
+                    Lugar de nacimiento: <dd>{{data.place_of_birth}}</dd>
+                </p>
+            </div>
+
+            <div class="col">
+                <img src="/media/animal/{{data.name_foto}}" alt="foto cerdo" style="width: 200px; height: 200px;" class="shadow-lg rounded">
+                
+            </div>
+
+            <div class="col">
+                <p>Fecha de nacimeinto: <dd>{{data.born_date}}</dd></p>
+                <br>
+                <p>Descripcion: <dd>{{data.description}}</dd></p>
+            </div>
+        </div>
+        <hr>
+        <!-- fin datos del cerdo -->
+        <h4 class="text-center">Resultados del analisis</h4>
+        <hr>
+        <!-- resultados obtenidos -->
+        <div class="row">
+            <div class="col">
+                <p>
+                  Resultado para neumonia: <dd>{{data.resultado}}</dd>
+                </p>
+            <div class="col">
+                <p>
+                  Sintomas: <dd>{{data.sintomas}}</dd>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                  Recomendaciones: <dd>{{data.recomendaciones}}</dd>
+                </p>
+            </div>
+            </div>
+            
+        </div>
+        <div class="mb-4">
+            <a href="{% url 'get_results' %}" class="btn btn-primary">Volver a resultados</a>
+        </div>
+    </main>
+</div>
+
+
+
+{% endblock content %}

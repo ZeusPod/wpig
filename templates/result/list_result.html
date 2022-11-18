@@ -13,18 +13,20 @@
             <div class="col">
                 <!-- start card -->
                 <div class="card shadow-lg" style="width: 20rem;">
-                <img class="card-img-top" src="{{r.name_foto.url}}" alt="Card image cap" style="height: 280px;">
+                <img class="card-img-top" src="/media/animal/{{r.name_foto}}" alt="Card image cap" style="height: 280px;">
                 <div class="card-body">
                     <p class="card-text fs-4 fw-semibold">
                         <span>Solicitud #: {{ r.id }}</span>
                         <br>
                         <span>Dueño: {{ r.animal_id }}</span>
                         <br>
+                        <span>Granja: {{ r.establo }}</span>
+                        <br>
                         <span>Resultado: {{ r.resultado }}</span>
                     </p>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-success btn-lg text-center">Ver detalle</button>
+                <div class="card-footer text-center">
+                    <a href="{% url 'detail_result' r.id %}" class="btn btn-success">Ver Informe</a>
                 </div>
                 </div>
                 <!-- end card -->
