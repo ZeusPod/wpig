@@ -16,7 +16,7 @@ def create_animal(request):
             formulario.user_id = request.user
             formulario.save()
             messages.success(request,'Cerdo agregado con exito')
-            return redirect('get_animals')
+            return redirect('home')
         context={
             'form':form,
         }

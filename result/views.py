@@ -55,6 +55,12 @@ def get_results(request):
     return render(request, 'result/list_result.html', {"results":results})
 
 
+# Get results by user_id
+def get_results_by_id(request, username):
+    data = Resultados.objects.filter(animal_id=username)
+    resp = data[0:]
+    return render(request, 'result/list_client.html', {'resp':resp})
+
 #details informe
 def detail_result(request, result_id):
     data = Resultados.objects.get(pk=result_id)

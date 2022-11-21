@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block content %}
 
 
 
 
 <div class="p-4 vh-100 w-100 overflow-auto">
-    <div class="container text-center">
-        <h1>Resultados</h1>
-        <hr>
-        <div class="row">
-        {% for r in results %}
+    <h1 class="text-center">
+        Resultados
+    </h1>
+    <hr>
+    <div class="row">
+        {% for r in resp %}
         <div class="col-12 col-md-4 pb-3">
             <!-- start card -->
             <div class="card shadow-lg" style="width: 20rem;">
@@ -34,36 +35,6 @@
             <!-- end card -->
         </div>
         {% endfor %}
-        </div>
-        
-    </div>
 </div>
-
-
+    
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <ul>
-                <li>Solitud #: {{ r.id }}</li>
-                <li>Dueño: {{ r.animal_id }}</li>
-                <li>Foto: {{ r.name_foto }}</li>
-                <div class="">
-                    <img src="{{r.name_foto.url}}" alt="" width="250px" height="250px">
-                </div>
-                <li>Ressultado: {{ r.resultado }}</li>
-                <li>Sintomas Relacionados : {{ r.sintomas }}</li>
-                <li>Recomendaciones: {{ r.recomendaciones }}</li>
-                <li>Fecha de procesado: {{ r.result_date }}</li>
-</ul>   -->
