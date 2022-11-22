@@ -26,7 +26,7 @@
 
     
 <body>
-
+    
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar" class="vh-100">
@@ -62,9 +62,6 @@
                     <a href="{% url 'create_animal' %}" class="nav-link"><i class="bi bi-piggy-bank px-2"></i>Registrar cerdo</a>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Resultados</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
                         {% if user.is_superuser %}
                             <li>
                                 <a href="{% url 'get_results' %}">Resultados</a>
@@ -74,9 +71,12 @@
                 </li>
                 {% if user.is_superuser %}
                 <li>
-                    <a href="{% url 'get_animals' %}" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial</a>
+                    <a href="{% url 'get_animals' %}" class="nav-link"><i class="bi bi-list-ol px-2"></i>Historial Admin</a>
                 </li>
                 {% endif %}
+                <li>
+                    <a href="{% url 'get_results_by_id' user.username %}" class="nav-link"><i class="bi bi-list-ol px-2"></i>Resultados cliente</a>
+                </li>
                 <li>
                 <a href="{% url 'logout' %}" class="nav-link"><i class="bi bi-door-closed"></i></i>Salir</a>
                 </li>
