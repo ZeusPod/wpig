@@ -91,7 +91,13 @@
             
         </div>
         <div class="mb-4">
-            <a href="{% url 'get_results' %}" class="btn btn-primary">Volver a resultados</a>
+            {% if user.is_superuser %}
+                <a href="{% url 'get_results' %}" class="btn btn-primary">Volver a resultados</a>
+            {% else %}
+                <a href="{% url 'get_results_by_id' user.username %}" class="btn btn-primary">
+                    Volver a resultados
+                </a>
+            {% endif %}
         </div>
     </main>
 </div>
